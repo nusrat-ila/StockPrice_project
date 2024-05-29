@@ -16,7 +16,10 @@ const App = () => {
         <div className="top-bar">
           <h1>Stock Price Checker</h1>
           <nav>
-            <Link to="/">Home</Link> | <Link to="/news">News</Link> | <Link to="/save-stock">Save Stock</Link> | <Link to="/pie-chart">Pie Chart</Link>
+            <Link to="/">Home</Link>
+            <Link to="/news">News</Link>
+            <Link to="/save-stock">Save Stock</Link>
+            <Link to="/pie-chart">Pie Chart</Link>
           </nav>
         </div>
         <div className="content">
