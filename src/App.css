@@ -5,7 +5,10 @@
   height: 100vh;
   font-family: Arial, sans-serif;
 }
-
+.logo {
+      width: 60px; /* Set the desired width */
+      height: 60px; /* Set the desired height */
+    }
 .top-bar {
   background-color: #333;
   color: white;
