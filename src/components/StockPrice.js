@@ -3,54 +3,73 @@ import axios from 'axios';
 import { FINNHUB_API_KEY } from '../config';
 
 const StockPrice = ({ selectedSymbol }) => {
-  const [stockData, setStockData] = useState(null);
+  const [companyData, setCompanyData] = useState(null);
+  const [quoteData, setQuoteData] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [rawResponse, setRawResponse] = useState(null);
+  const [showRawResponse, setShowRawResponse] = useState(false); // State for toggling visibility
 
   useEffect(() => {
-    const fetchStockData = async () => {
+    const fetchData = async () => {
       if (!selectedSymbol) return;
 
       setLoading(true);
       setError(null);
 
       try {
-        const response = await axios.get(`https://finnhub.io/api/v1/stock/profile2`, {
+        const companyResponse = await axios.get(`https://finnhub.io/api/v1/stock/profile2`, {
           params: {
             symbol: selectedSymbol,
             token: FINNHUB_API_KEY,
           },
         });
-        console.log('API Response:', response.data); // Log the API response
-        setRawResponse(response.data); // Save raw response to state
-        setStockData(response.data);
+
+        const quoteResponse = await axios.get(`https://finnhub.io/api/v1/quote`, {
+          params: {
+            symbol: selectedSymbol,
+            token: FINNHUB_API_KEY,
+          },
+        });
+
+        console.log('Company API Response:', companyResponse.data);
+        console.log('Quote API Response:', quoteResponse.data);
+
+        setRawResponse({ companyData: companyResponse.data, quoteData: quoteResponse.data });
+        setCompanyData(companyResponse.data);
+        setQuoteData(quoteResponse.data);
       } catch (err) {
-        console.error('Error fetching stock data', err); // Log any errors
+        console.error('Error fetching stock data', err);
         setError('Error fetching stock data');
       } finally {
         setLoading(false);
       }
     };
 
-    fetchStockData();
+    fetchData();
   }, [selectedSymbol]);
 
   return (
     <div className="stock-details">
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
-      {stockData && !error && (
+      {companyData && quoteData && !error && (
         <div>
-          <h2>{stockData.name} ({selectedSymbol})</h2>
-          <p>Market Capitalization: ${stockData.marketCapitalization}</p>
-          <p>IPO Date: {stockData.ipo}</p>
-          <p>Industry: {stockData.finnhubIndustry}</p>
-          <p>Web URL: <a href={stockData.weburl} target="_blank" rel="noopener noreferrer">{stockData.weburl}</a></p>
+          <h2>{companyData.name} ({selectedSymbol})</h2>
+          <p>Market Capitalization: ${companyData.marketCapitalization}</p>
+          <p>Current Price: ${quoteData.c}</p>
+          <p>52-Week High: ${quoteData.h}</p>
+          <p>52-Week Low: ${quoteData.l}</p>
+          <p>IPO Date: {companyData.ipo}</p>
+          <p>Industry: {companyData.finnhubIndustry}</p>
+          <p>Web URL: <a href={companyData.weburl} target="_blank" rel="noopener noreferrer">{companyData.weburl}</a></p>
         </div>
       )}
-      {rawResponse && (
-        <div>
+      <button onClick={() => setShowRawResponse(!showRawResponse)}>
+        {showRawResponse ? 'Hide' : 'Show'} Raw API Response
+      </button>
+      {showRawResponse && rawResponse && (
+        <div className="raw-api-response">
           <h3>Raw API Response:</h3>
           <pre>{JSON.stringify(rawResponse, null, 2)}</pre>
         </div>
