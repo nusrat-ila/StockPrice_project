@@ -1,25 +1,28 @@
-import logo from './logo.svg';
+// src/App.js
+import React, { useState } from 'react';
+import StockList from './components/StockList';
+import StockPrice from './components/StockPrice';
 import './App.css';
 
-function App() {
+const App = () => {
+  const [selectedSymbol, setSelectedSymbol] = useState('');
+  const stockSymbols = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA']; // Example stock symbols
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className="top-bar">
+        <h1>Stock Price Checker</h1>
+      </div>
+      <div className="content">
+        <div className="left-pane">
+          <StockList symbols={stockSymbols} onSelect={setSelectedSymbol} />
+        </div>
+        <div className="main-pane">
+          <StockPrice selectedSymbol={selectedSymbol} />
+        </div>
+      </div>
     </div>
   );
-}
+};
 
 export default App;
