@@ -13,13 +13,19 @@
   text-align: center;
 }
 
+.top-bar nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
 .content {
   display: flex;
   flex: 1;
 }
 
 .left-pane {
-  width: 200px;
+  width: 250px;
   background-color: #f4f4f4;
   padding: 20px;
   box-shadow: 2px 0 5px rgba(0,0,0,0.1);
@@ -48,4 +54,38 @@
   background-color: #fff;
   padding: 20px;
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.news-page {
+  display: flex;
+  flex: 1;
+}
+
+.news-container {
+  flex: 1;
+  padding: 20px;
+}
+
+.news-container ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.news-container li {
+  margin-bottom: 20px;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.news-container li h3 {
+  margin: 0;
+}
+
+.news-container li p {
+  margin: 10px 0;
+}
+
+.news-container li a {
+  color: #007BFF;
+  text-decoration: none;
 }
