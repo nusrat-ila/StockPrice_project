@@ -1,0 +1,22 @@
+[
+  { "symbol": "AAPL", "name": "Apple Inc." },
+  { "symbol": "GOOGL", "name": "Alphabet Inc." },
+  { "symbol": "MSFT", "name": "Microsoft Corporation" },
+  { "symbol": "AMZN", "name": "Amazon.com, Inc." },
+  { "symbol": "TSLA", "name": "Tesla, Inc." },
+  { "symbol": "FB", "name": "Facebook, Inc." },
+  { "symbol": "BRK.A", "name": "Berkshire Hathaway Inc." },
+  { "symbol": "JNJ", "name": "Johnson & Johnson" },
+  { "symbol": "V", "name": "Visa Inc." },
+  { "symbol": "WMT", "name": "Walmart Inc." },
+  { "symbol": "JPM", "name": "JPMorgan Chase & Co." },
+  { "symbol": "MA", "name": "Mastercard Incorporated" },
+  { "symbol": "PG", "name": "Procter & Gamble Co." },
+  { "symbol": "NVDA", "name": "NVIDIA Corporation" },
+  { "symbol": "HD", "name": "Home Depot, Inc." },
+  { "symbol": "DIS", "name": "Walt Disney Company" },
+  { "symbol": "PYPL", "name": "PayPal Holdings, Inc." },
+  { "symbol": "ADBE", "name": "Adobe Inc." },
+  { "symbol": "CMCSA", "name": "Comcast Corporation" },
+  { "symbol": "NFLX", "name": "Netflix, Inc." }
+]

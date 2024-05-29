@@ -1,27 +1,40 @@
 // src/App.js
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
 import StockList from './components/StockList';
 import StockPrice from './components/StockPrice';
+import News from './components/News';
 import './App.css';
 
 const App = () => {
   const [selectedSymbol, setSelectedSymbol] = useState('');
-  const stockSymbols = ['AAPL', 'GOOGL', 'MSFT', 'AMZN', 'TSLA']; // Example stock symbols
 
   return (
-    <div className="App">
-      <div className="top-bar">
-        <h1>Stock Price Checker</h1>
-      </div>
-      <div className="content">
-        <div className="left-pane">
-          <StockList symbols={stockSymbols} onSelect={setSelectedSymbol} />
+    <Router>
+      <div className="App">
+        <div className="top-bar">
+          <h1>Stock Price Checker</h1>
+          <nav>
+            <Link to="/">Home</Link> | <Link to="/news">News</Link>
+          </nav>
         </div>
-        <div className="main-pane">
-          <StockPrice selectedSymbol={selectedSymbol} />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={
+              <>
+                <div className="left-pane">
+                  <StockList onSelect={setSelectedSymbol} />
+                </div>
+                <div className="main-pane">
+                  <StockPrice selectedSymbol={setSelectedSymbol} />
+                </div>
+              </>
+            } />
+            <Route path="/news" element={<News />} />
+          </Routes>
         </div>
       </div>
-    </div>
+    </Router>
   );
 };
 
