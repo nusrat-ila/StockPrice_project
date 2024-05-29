@@ -55,11 +55,15 @@ const StockPrice = ({ selectedSymbol }) => {
       {error && <p>{error}</p>}
       {companyData && quoteData && !error && (
         <div>
+		  <img class="logo" src={companyData.logo} alt="icon"/>
           <h2>{companyData.name} ({selectedSymbol})</h2>
           <p>Market Capitalization: ${companyData.marketCapitalization}</p>
           <p>Current Price: ${quoteData.c}</p>
-          <p>52-Week High: ${quoteData.h}</p>
-          <p>52-Week Low: ${quoteData.l}</p>
+		  <p>Percentage change: {quoteData.dp}</p>
+          <p>High Price of the day: ${quoteData.h}</p>
+          <p>Low Price of the day: ${quoteData.l}</p>
+		  <p>Open Price of the day: ${quoteData.o}</p>
+		  <p>Close price last day: ${quoteData.pc}</p>
           <p>IPO Date: {companyData.ipo}</p>
           <p>Industry: {companyData.finnhubIndustry}</p>
           <p>Web URL: <a href={companyData.weburl} target="_blank" rel="noopener noreferrer">{companyData.weburl}</a></p>
