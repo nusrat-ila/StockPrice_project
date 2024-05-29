@@ -22,6 +22,8 @@
 .content {
   display: flex;
   flex: 1;
+  justify-content: center;
+  align-items: center;
 }
 
 .left-pane {
@@ -88,4 +90,97 @@
 .news-container li a {
   color: #007BFF;
   text-decoration: none;
+}
+
+.save-stock {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  width: 400px;
+  text-align: center;
+}
+
+.save-stock h2 {
+  margin-bottom: 20px;
+}
+
+.save-stock .form-group {
+  margin-bottom: 15px;
+  text-align: left;
+}
+
+.save-stock label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.save-stock select,
+.save-stock input {
+  width: 100%;
+  padding: 8px;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.save-stock button {
+  background-color: #007BFF;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.save-stock button:hover {
+  background-color: #0056b3;
+}
+
+.save-stock .message {
+  margin: 10px 0;
+  padding: 10px;
+  border: 1px solid #4caf50;
+  background-color: #d4edda;
+  color: #155724;
+  border-radius: 4px;
+}
+
+.save-stock ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 20px;
+  text-align: left;
+}
+
+.save-stock li {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}
+
+.stock-pie-chart {
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  border-radius: 8px;
+  width: 500px;
+  text-align: center;
+}
+
+.stock-pie-chart h2 {
+  margin-bottom: 20px;
+}
+
+.view-mode-selector {
+  margin-bottom: 20px;
+}
+
+.view-mode-selector label {
+  margin-right: 10px;
+  cursor: pointer;
 }
