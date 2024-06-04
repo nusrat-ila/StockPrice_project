@@ -68,15 +68,33 @@
 
 .stock-list ul {
   list-style-type: none;
-  padding: 0;
 }
 
-.stock-list li {
-  padding: 10px;
+.collapsible-trigger {
+  display: inline-block;
+  width: 100%;
+}
+
+.collapsible {
   cursor: pointer;
 }
 
 .stock-list li:hover {
+  background-color: #ddd;
+}
+
+.collapsible ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.collapsible li {
+  padding: 10px;
+  cursor: pointer;
+  background-color: #f4f4f4;
+}
+
+.collapsible li:hover {
   background-color: #ddd;
 }
 
