@@ -62,29 +62,29 @@ const StockList = ({ onSelect }) => {
         <li>
           <CollapsableStockSublist 
             onSelect={onSelect}
-            symbols={getSymbolsInRange(symbols, /^[A-Ga-g]/)}
-            trigger='A - G'
+            symbols={getSymbolsInRange(symbols, /^[A-Fa-f]/)}
+            trigger='A - F'
           />
         </li> 
         <li>
           <CollapsableStockSublist 
             onSelect={onSelect}
-            symbols={getSymbolsInRange(symbols, /^[H-Nh-n]/)}
-            trigger='H - N'
+            symbols={getSymbolsInRange(symbols, /^[G-Lg-l]/)}
+            trigger='G - L'
           />
         </li> 
         <li>
           <CollapsableStockSublist 
             onSelect={onSelect}
-            symbols={getSymbolsInRange(symbols, /^[O-Uo-u]/)}
-            trigger='O - U'
+            symbols={getSymbolsInRange(symbols, /^[M-Sm-s]/)}
+            trigger='M - S'
           />
         </li> 
         <li>
           <CollapsableStockSublist 
             onSelect={onSelect}
-            symbols={getSymbolsInRange(symbols, /^[V-Zv-z]/)}
-            trigger='V - Z'
+            symbols={getSymbolsInRange(symbols, /^[T-Zt-z]/)}
+            trigger='T - Z'
           />
         </li> 
       </ul>
