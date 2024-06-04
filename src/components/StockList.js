@@ -17,7 +17,11 @@ const getSymbolsInRange = (symbols, range) => {
    symbols: The sublist of stock items.
    trigger: The text to display for the dropdown itself */
 const CollapsableStockSublist = ({ onSelect, symbols, trigger }) => {
-  return (<Collapsible trigger={trigger}>
+  return (<Collapsible trigger={trigger} 
+    className='collapsible'
+    openedClassName='collapsible collapsible-open'
+    triggerClassName='collapsible-trigger'
+    triggerOpenedClassName='collapsible-trigger'>
       <ul>
         {symbols.map((item, index) => (
           <li key={index} onClick={() => onSelect(item.symbol)}>
@@ -48,7 +52,6 @@ const StockList = ({ onSelect }) => {
 
     fetchStockSymbols();
   }, []);
-  console.log(`Symbols in A - G: ${getSymbolsInRange(symbols, /^[A-Ga-g]/)}`)
 
   return (
     <div className="stock-list">
