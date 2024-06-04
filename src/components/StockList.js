@@ -2,12 +2,20 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import Collapsible from 'react-collapsible';
 
+/* Get all stocks with their symbols within the given alphabetic range.
+   Sorts the result in alphabetical order by symbol.
+   'range' is just a Regexp to compare on, best practice format:
+      /^[(start letter)-(end letter)] */
 const getSymbolsInRange = (symbols, range) => {
   return symbols.filter((item) => {
     return item.symbol.match(range) ? true : false;
   }).sort((a, b) => a.symbol.localeCompare(b.symbol))
 }
 
+/* Component for a collapsable sublist of stocks.
+   onSelect: function to call when the stock is clicked.
+   symbols: The sublist of stock items.
+   trigger: The text to display for the dropdown itself */
 const CollapsableStockSublist = ({ onSelect, symbols, trigger }) => {
   return (<Collapsible trigger={trigger}>
       <ul>
