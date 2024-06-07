@@ -46,7 +46,7 @@ const MainContent = ({ selectedSymbol, setSelectedSymbol }) => {
               <div className="left-pane">
                 <StockList onSelect={setSelectedSymbol} />
               </div>
-              <div className="main-pane">
+              <div className="main-pane transparent-container">
                 <StockPrice selectedSymbol={selectedSymbol} />
               </div>
             </>
