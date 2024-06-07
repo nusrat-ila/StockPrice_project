@@ -8,7 +8,7 @@ const StockPrice = ({ selectedSymbol }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [rawResponse, setRawResponse] = useState(null);
-  const [showRawResponse, setShowRawResponse] = useState(false); // State for toggling visibility
+  const [showRawResponse, setShowRawResponse] = useState(false); 
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,4 +1,4 @@
-// src/components/News.js
+
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { FINNHUB_API_KEY } from '../config';

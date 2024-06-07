@@ -7,7 +7,7 @@ import { FINNHUB_API_KEY } from '../config';
 const StockPieChart = () => {
   const [savedStocks, setSavedStocks] = useState(JSON.parse(localStorage.getItem('savedStocks')) || {});
   const [stockData, setStockData] = useState({});
-  const [viewMode, setViewMode] = useState('quantity'); // 'quantity' or 'price'
+  const [viewMode, setViewMode] = useState('quantity'); 
 
   useEffect(() => {
     const fetchStockPrices = async () => {
